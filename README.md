@@ -21,15 +21,13 @@
 
 | Column        | Type       | Options                        |
 | -----------   | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| nickname      | integer    | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
-| items_id      | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+| items         | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
-- has_one    :delivery_addresses
+- belongs_to :user
+- belongs_to :item
+- has_one    :delivery_addresse
 
 ##  delivery_addresses テーブル
 
@@ -41,7 +39,7 @@
 | home_number   | string     | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | unique: true                   |
-| order_id      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :orders
@@ -52,13 +50,13 @@ belongs_to :orders
 | -----------   | ---------- | ------------------------------ |
 | name          | string     | null: false                    |
 | explanation   | text       | null: false                    |
-| category_id   | integer    | null: false, foreign_key: true |
+| category_id   | integer    | null: false,                   |
 | condition_id  | integer    | null: false                    |
 | postage_id    | integer    | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | prepare_id    | integer    | null: false                    |
 | price         | integer    | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 
