@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :orders
-- has_many :items, 
+- has_many :items
 
 ##  orders テーブル
 
@@ -27,7 +27,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one    :delivery_addresse
+- has_one    :delivery_address
 
 ##  delivery_addresses テーブル
 
@@ -60,6 +60,7 @@ belongs_to :order
 
 ### Association
 
+- belongs_to_active_hash :category
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage
