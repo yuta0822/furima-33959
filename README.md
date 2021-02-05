@@ -15,14 +15,14 @@
 
 ### Association
 - has_many :orders
-- has_many :items, through: orders
+- has_many :items, 
 
 ##  orders テーブル
 
 | Column        | Type       | Options                        |
 | -----------   | ---------- | ------------------------------ |
 | user          | references | null: false, foreign_key: true |
-| items         | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -38,11 +38,11 @@
 | city          | string     | null: false                    |
 | home_number   | string     | null: false                    |
 | building_name | string     |                                |
-| phone_number  | string     | unique: true                   |
+| phone_number  | string     | null: false                    |
 | order         | references | null: false, foreign_key: true |
 
 ### Association
-belongs_to :orders
+belongs_to :order
 
 ##  items テーブル
 
@@ -64,7 +64,7 @@ belongs_to :orders
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage
 - belongs_to_active_hash :prepare
-- has_many :orders
-- has_many :users, through: orders
+- has_one                :order
+- belongs_to             :user
 
 
