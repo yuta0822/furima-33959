@@ -18,10 +18,7 @@ class User < ApplicationRecord
    validates :family_name_kana
    validates :first_name_kana
   end 
-  
-  with_options presence: true, length:{ minimum:6 }, format:{ with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/, message: "is invalid. Input full-width katakana characters." }do
-   validates :encrypted_password
-   validates :password
-   validates :password_confirmation
-  end
+
+  validates :encrypted_password,:password,:password_confirmation,length:{minimum:6},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
+
 end
