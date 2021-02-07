@@ -18,4 +18,7 @@ class User < ApplicationRecord
    validates :family_name_kana
    validates :first_name_kana
   end 
+  
+  validates :encrypted_password,:password,:password_confirmation,length:{minimum:6},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
+
 end
