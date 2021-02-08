@@ -17,6 +17,6 @@ class Item < ApplicationRecord
   validates :postage_id,    numericality: { other_than: 1 }  
   validates :prefecture_id, numericality: { other_than: 1 } 
   validates :prepare_id,    numericality: { other_than: 1 } 
-  validates :price,        presence: true
+  validates :price,         presence: true
 
 end
