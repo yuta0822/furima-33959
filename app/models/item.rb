@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :postage
   belongs_to :prefecture
+  belongs_to :prepare
   
   belongs_to             :user
   has_one_attached       :image
@@ -15,7 +16,7 @@ class Item < ApplicationRecord
   validates :condition_id,  numericality: { other_than: 1 } 
   validates :postage_id,    numericality: { other_than: 1 }  
   validates :prefecture_id, numericality: { other_than: 1 } 
-  validates :prepare_id,    presence: true
-  validates :price ,        presence: true
+  validates :prepare_id,    numericality: { other_than: 1 } 
+  validates :price,        presence: true
 
 end
