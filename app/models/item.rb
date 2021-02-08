@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :postage
+  belongs_to :prefecture
   
   belongs_to             :user
   has_one_attached       :image
@@ -13,7 +14,7 @@ class Item < ApplicationRecord
   validates :category_id,   numericality: { other_than: 1 } 
   validates :condition_id,  numericality: { other_than: 1 } 
   validates :postage_id,    numericality: { other_than: 1 }  
-  validates :prefecture_id, presence: true
+  validates :prefecture_id, numericality: { other_than: 1 } 
   validates :prepare_id,    presence: true
   validates :price ,        presence: true
 
