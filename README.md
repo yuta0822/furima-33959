@@ -58,6 +58,7 @@ belongs_to :order
 | price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
 
+
 ### Association
 
 - belongs_to_active_hash :category
