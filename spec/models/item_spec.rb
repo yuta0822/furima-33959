@@ -32,31 +32,31 @@ RSpec.describe Item, type: :model do
     end
 
     it "category_id(カテゴリーの選択)がない場合は登録できないこと" do
-      @item.category_id = '1'
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Category must be other than 1")
     end
 
     it "condition_id(商品の状態)の選択がない場合は登録できないこと" do
-      @item.condition_id = '1' 
+      @item.condition_id = 1 
       @item.valid?
       expect(@item.errors.full_messages).to include("Condition must be other than 1")
     end
 
     it "postage_id(発送料の負担)の選択がない場合は登録できないこと" do
-      @item.postage_id = '1'
+      @item.postage_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Postage must be other than 1")
     end
 
     it "prefecture_id(発送元の地域)の選択がない場合は登録できないこと" do
-      @item.prefecture_id = '1'
+      @item.prefecture_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
     end
 
     it "prepare_id(発送までの日数)の選択がない場合は登録できないこと" do
-      @item.prepare_id = '1'
+      @item.prepare_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Prepare must be other than 1")
     end
@@ -68,7 +68,19 @@ RSpec.describe Item, type: :model do
     end
 
     it "price(値段)が300以下であれば登録できないこと " do
-      @item.price = '299' 
+      @item.price = 299
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is invalid")
+    end
+
+    it "値段が全角数字の場合は登録できない" do
+      @item.price = '９９９９９' 
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is invalid")
+    end
+
+    it "値段が10_000_000円以上の場合は登録できない" do
+      @item.price =  10000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is invalid")
     end
