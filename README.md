@@ -50,13 +50,14 @@ belongs_to :order
 | -----------   | ---------- | ------------------------------ |
 | name          | string     | null: false                    |
 | explanation   | text       | null: false                    |
-| category_id   | integer    | null: false,                   |
+| category_id   | integer    | null: false                   |
 | condition_id  | integer    | null: false                    |
 | postage_id    | integer    | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | prepare_id    | integer    | null: false                    |
 | price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
+
 
 ### Association
 
