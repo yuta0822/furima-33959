@@ -124,10 +124,10 @@
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
-    <% if @items.present? %> 
-    <ul class='item-lists'>
-      <li class='list'>
+     <ul class='item-lists'>
+      <% if @items.present? %> 
         <% @items.each do |item| %>
+         <li class='list'>
           <%= link_to "#" do %>
           <div class='item-img-content'>
             <%= link_to image_tag(item.image, class: "item-img"), item_path(item) %>
@@ -147,8 +147,8 @@
               </div>
             </div>
           </div>
-          <% end %>
         <% end %>
+      <% end %>
       </li>
     <% else%> 
         <li class='list'>
