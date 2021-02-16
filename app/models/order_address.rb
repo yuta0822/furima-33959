@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :phone_number, :prefecture, :city, :house_number, :building_name, :post_code, :prefecture_id, :user_id, :item_id
+  attr_accessor :phone_number, :city, :house_number, :building_name, :post_code, :prefecture_id, :user_id, :item_id
 
   with_options presence: true do
     validates :city
@@ -13,5 +13,8 @@ class OrderAddress
   validates :building_name
   validates :prefecture_id,    presence: true, numericality: { other_than: 1 }
 
-
+  def save
+    order = Order.create(user_id: user_id)
+    Address.create(city: city, home_number: home_number, phone_number: phone_number, post_code: pots_code, building_name: building_name, prefecture_id: prefecture_id, user_id: user.id, item_id: item.id)
+  end
 end
