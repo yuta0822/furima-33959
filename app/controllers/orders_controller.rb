@@ -18,13 +18,13 @@ class OrdersController < ApplicationController
     end
   end 
 
-  def set_item
-    @item = Item.find(params[:item_id])
-  end
-
   private
   def address_params
     params.require(:order_address).permit(:post_code, :prefecture_id, :home_number, :building_name, :phone_number, :city).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def pay_item
@@ -37,7 +37,6 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    @item = Item.find(params[:item_id])
     if @item.order.present? || @item.user_id == current_user.id
       redirect_to root_path
     end 
