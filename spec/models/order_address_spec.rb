@@ -51,6 +51,31 @@ require 'rails_helper'
           @order_address.valid?
           expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
         end
+        it 'phone_numberは12桁以上だと保存できないこと' do
+          @order_address.phone_number = '1234567890'
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("Phone number Input only number")
+        end
+        it 'phone_numberは英数混合だと保存できないこと' do
+          @order_address.phone_number = '123abc'
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("Phone number Input only number")
+        end
+        it 'user_idは空だと保存できないこと' do
+          @order_address.user_id = ''
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("User can't be blank")
+        end
+        it 'item_idは空だと保存できないこと' do
+          @order_address.item_id = ''
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("Item can't be blank")
+        end
+        it 'tokenは空だと保存できないこと' do
+          @order_address.token = ''
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("Token can't be blank")
+        end
       end
     end
   end
