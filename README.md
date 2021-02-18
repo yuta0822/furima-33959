@@ -27,9 +27,9 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one    :delivery_address
+- has_one    :address
 
-##  delivery_addresses テーブル
+##  addresses テーブル
 
 | Column        | Type       | Options                        |
 | -----------   | ---------- | ------------------------------ |
