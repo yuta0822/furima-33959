@@ -5,7 +5,7 @@ class OrderAddress
   with_options presence: true do
     validates :city
     validates :home_number
-    validates :phone_number,     format: {with: /\A\d{11}\z/, message: "Input only number"}
+    validates :phone_number,     length:{ maximum: 11 }, format: {with: /\A[0-9]\z/, message: " too long"}
     validates :user_id
     validates :item_id
     validates :token

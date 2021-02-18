@@ -54,7 +54,7 @@ require 'rails_helper'
         it 'phone_numberは12桁以上だと保存できないこと' do
           @order_address.phone_number = '1234567890'
           @order_address.valid?
-          expect(@order_address.errors.full_messages).to include("Phone number Input only number")
+          expect(@order_address.errors.full_messages).to include("Phone number too long")
         end
         it 'phone_numberは英数混合だと保存できないこと' do
           @order_address.phone_number = '123abc'
